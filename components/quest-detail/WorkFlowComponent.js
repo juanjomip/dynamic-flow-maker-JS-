@@ -9,13 +9,10 @@ export default class WorkFlowComponent extends Component {
     super(props);
     this.state = {
     	workFlow: new Flujo(),
-    	currentEstate: new Flujo().estados[0]
+    	currentEstate: new Flujo().estados[0],
+    	informacion: new Flujo().informacion
     };
-  } 
-  
- 
-
- 
+  }  
 
 
   mostrarEstados() {
@@ -24,7 +21,7 @@ export default class WorkFlowComponent extends Component {
   		this.setState({
   			currentEstate: actual
   		})
-  		console.log(this.state.currentEstate);
+  		//console.log(this.state.currentEstate);
   		
   	}
 
@@ -62,9 +59,22 @@ export default class WorkFlowComponent extends Component {
 	 	}	  	
 	  }
 
+	mostrarInfo = () => {
+		
+		console.log(this.state.informacion);
+		return this.state.informacion.map(function(section) {
+			return (<View><Text>{section.title}</Text>{
+				section.datos.map(function(dato) {
+					return <Text>{dato.label}: {dato.value}</Text>
+				})}</View>
+			)
+		})
+	}
+
   	return (
   		<View style={{ backgroundColor: 'powderblue'}} >
-	  		<Text>{this.state.currentEstate.nombre}</Text>	
+  		<Text>{this.state.currentEstate.nombre}</Text>	
+  			{mostrarInfo()}	  		
 	  		{mostrarSiguientes()}  	
 	  		{mostrarAnteriores()} 	
 	  	</View>
@@ -117,7 +127,7 @@ export default class WorkFlowComponent extends Component {
 	}
 
   	return this.state.workFlow.getEstados().map(function(estado, index) {
-  		console.log(estado.nombre);
+  		//console.log(estado.nombre);
   		return (
   			<View style={{ backgroundColor: 'powderblue'}} key={index} >
 	  			<Text>{estado.nombre}</Text>

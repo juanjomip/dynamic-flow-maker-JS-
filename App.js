@@ -1,15 +1,14 @@
-
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import WorkFlowComponent from './components/quest-detail/WorkFlowComponent';
+import { 
+	View,
+	Text
+} from 'react-native'; 
+import Principal from './app/Principal';
 
-export default class HelloWorldApp extends Component {  
-
+export default class App extends Component { 
   render() {
     return (
-      <View style={{flex:1}}>      	        
-        <WorkFlowComponent></WorkFlowComponent>       
-      </View>
+      	<Principal></Principal>     
     );
   }
 }

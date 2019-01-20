@@ -1,5 +1,23 @@
 import Estado from './Estado';
 
+const sections = [
+    {title: 'Datos del cliente', datos: [
+        {label: 'Nombre', value: 'Obi Wan Kenobi'},
+        {label: 'Edad', value: '35'},
+        {label: 'Rango', value: 'Maestro Jedi'},
+    ]},
+    {title: 'Información de combate', datos: [
+        {label: 'Estilo', value: 'Forma V: Soresu'},
+        {label: 'Sable', value: 'Azul'},        
+    ]},
+    {title: 'Amigos', datos: [
+        {label: 'Nombre', value: 'Ashoka Tano'},
+        {label: 'Nombre', value: 'Anakin Skywalker'},
+        {label: 'Nombre', value: 'Plo Koon'},
+        {label: 'Nombre', value: 'Mace Windu'}
+    ]}
+];
+
 const data = [
     {id:7, name:'Asignada', next: [1]},
 	{id:1, name:'En camino', next: [2,5]},
@@ -12,7 +30,8 @@ const data = [
 class Flujo{
   	
   	constructor(){
-        
+        this.informacion = sections;
+
         this.estados = undefined;
         this.estadosMostrables = undefined;
 
